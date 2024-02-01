@@ -6,9 +6,7 @@
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
 ## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
+Resolução Teste Técnico Pagar.me
 ## Installation
 
 ```bash
