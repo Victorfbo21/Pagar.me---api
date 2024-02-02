@@ -8,12 +8,12 @@ export class TransactionsController {
     constructor(private transactionService: TransactionsServices) { }
 
     @Get('/')
-    async getClients() {
-        return 'Clientes!!'
+    async healthCheckTransactions() {
+        return 'Transactios!'
     }
 
     @Post('/create')
-    async createClient(@Body() transactionData: CreateTransactionDto) {
+    async createTransaction(@Body() transactionData: CreateTransactionDto) {
 
         return this.transactionService.createTransaction(transactionData)
     }

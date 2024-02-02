@@ -9,7 +9,7 @@ export class ClientsController {
 
     @Get('/')
     async getClients() {
-        return 'Clientes!!'
+        return this.clientServices.getClients()
     }
 
     @Post('/create')

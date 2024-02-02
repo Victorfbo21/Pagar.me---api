@@ -11,11 +11,11 @@ export class TransactionsServices {
     constructor(@InjectRepository(Transaction) private transactionRepository: Repository<Transaction>) { }
 
 
-    async createTransaction(createClienteDto: CreateTransactionDto) {
+    async createTransaction(createTransactionDto: CreateTransactionDto) {
 
-        const createCliente = this.transactionRepository.create(createClienteDto)
+        const createdTransaction = this.transactionRepository.create(createTransactionDto)
 
-        return await this.transactionRepository.save(createCliente)
+        return await this.transactionRepository.save(createdTransaction)
     }
 
 }

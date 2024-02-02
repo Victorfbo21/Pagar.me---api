@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClientModule } from './modules/client/client.module';
-
+import { PayablesModule } from './modules/payables/payables.module';
+import { TransactionsModule } from './modules/transactions/transactions.module'
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -16,7 +17,9 @@ import { ClientModule } from './modules/client/client.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: process.env.DB_SYNCHRONIZE === 'true',
     }),
-    ClientModule
+    ClientModule,
+    PayablesModule,
+    TransactionsModule
   ],
   controllers: [],
   providers: [],

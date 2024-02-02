@@ -21,4 +21,9 @@ export class ClientServices {
         return await this.clientRepository.save(createCliente)
     }
 
+    async getClients() {
+
+        return await this.clientRepository.find()
+    }
+
 }
