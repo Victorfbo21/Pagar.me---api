@@ -1,7 +1,7 @@
 
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
 
-enum PayableStatus {
+export enum PayableStatus {
     Paid = "paid",
     Waiting_funds = "waiting_funds",
 }

@@ -15,7 +15,7 @@ import { TransactionsModule } from './modules/transactions/transactions.module'
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: process.env.DB_SYNCHRONIZE === 'true',
+      synchronize: false
     }),
     ClientModule,
     PayablesModule,

@@ -13,9 +13,9 @@ export class PayablesController {
     }
 
     @Post('/create')
-    async createClient(@Body() data: CreatePyablesDto) {
+    async createPayable(@Body() data: CreatePyablesDto) {
 
-        return this.payablestServices.createClient(data)
+        return this.payablestServices.createPayable(data)
     }
 
 

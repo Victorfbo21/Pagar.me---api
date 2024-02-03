@@ -5,14 +5,12 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { CreatePyablesDto } from './interfaces/create-payables.interface';
 
 @Injectable()
-
 export class PayablesServices {
 
     constructor(@InjectRepository(Payables) private payablesRepository: Repository<Payables>) { }
 
 
-    async createClient(createClienteDto: CreatePyablesDto) {
-
+    async createPayable(createClienteDto: CreatePyablesDto) {
 
         const createCliente = this.payablesRepository.create(createClienteDto)
 
