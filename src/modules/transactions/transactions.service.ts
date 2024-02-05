@@ -50,7 +50,6 @@ export class TransactionsServices {
     }
 
     async getTransactionsByClient(client: string) {
-
         const result = await this._transactionRepository.find({
             where: {
                 toClient: client
@@ -58,6 +57,5 @@ export class TransactionsServices {
         })
 
         return result
-
     }
 }
