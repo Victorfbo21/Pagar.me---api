@@ -28,6 +28,7 @@ export class TransactionsServices {
         const createdTransaction = this._transactionRepository.create(createTransactionDto)
 
         const transactionSaveResult = await this._transactionRepository.save(createdTransaction)
+
         const isCredit = createTransactionDto.payment_method === PaymentMethod.CreditCard
         const today = new Date();
         const futureDate = new Date(today);
@@ -38,10 +39,13 @@ export class TransactionsServices {
             client: createTransactionDto.toClient,
             status: isCredit ? PayableStatus.Waiting_funds : PayableStatus.Paid,
             payment_date: isCredit ? futureDate : today,
-            transaction: transactionSaveResult.id
+            transaction: transactionSaveResult.id,
+            isCredit: isCredit,
+            value: transactionSaveResult.value
         }
 
         const createPyableResult = await this._payablesServices.createPayable(data)
+
         if (!createPyableResult) {
             throw new Error("Erro ao Gerar Payable")
         }
@@ -55,7 +59,6 @@ export class TransactionsServices {
                 toClient: client
             }
         })
-
         return result
     }
 }

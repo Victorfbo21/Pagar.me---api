@@ -19,4 +19,10 @@ export class PayablesController {
     }
 
 
+    @Post('/extract')
+    async getClientExtract(@Body() client: string) {
+        return this.payablestServices.getClientBalance(client)
+    }
+
+
 }

@@ -1,5 +1,5 @@
 
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, Index } from 'typeorm';
 
 export enum PayableStatus {
     Paid = "paid",
@@ -12,9 +12,11 @@ export class Payables {
     @PrimaryGeneratedColumn()
     id: string;
 
-    @Column({ length: 500 })
+    @Index()
+    @Column()
     client: string;
 
+    @Index()
     @Column()
     transaction: string;
 
@@ -23,6 +25,11 @@ export class Payables {
         enum: PayableStatus
     })
     status: PayableStatus;
+
+    @Column({
+        type: 'float'
+    })
+    value: number
 
     @Column()
     payment_date: Date

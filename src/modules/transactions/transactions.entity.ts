@@ -1,7 +1,7 @@
 
 
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, Index } from 'typeorm';
 
 export enum PaymentMethod {
     DebitCard = "debit_card",
@@ -13,6 +13,7 @@ export class Transaction {
     @PrimaryGeneratedColumn()
     id: string;
 
+    @Index()
     @Column()
     toClient: string;
 
@@ -22,6 +23,7 @@ export class Transaction {
     @Column()
     description: string;
 
+    @Index()
     @Column({
         type: 'enum',
         enum: PaymentMethod

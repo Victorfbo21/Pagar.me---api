@@ -5,4 +5,6 @@ export interface CreatePyablesDto {
     status: any,
     payment_date: Date,
     transaction: string;
+    isCredit: boolean;
+    value: string
 }
