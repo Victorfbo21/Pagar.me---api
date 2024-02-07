@@ -7,10 +7,6 @@ export class PayablesController {
 
     constructor(private payablestServices: PayablesServices) { }
 
-    @Get('/')
-    async getClients() {
-        return 'Clientes!!'
-    }
 
     @Post('/create')
     async createPayable(@Body() data: CreatePyablesDto) {
