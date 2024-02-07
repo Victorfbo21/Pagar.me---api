@@ -20,7 +20,8 @@ export class PayablesController {
 
 
     @Post('/extract')
-    async getClientExtract(@Body() client: string) {
+    async getClientExtract(@Body() data: { client: string }) {
+        const { client } = data
         return this.payablestServices.getClientBalance(client)
     }
 
